@@ -1,4 +1,5 @@
 const Profile = require('../models').Profile;
+const models  =require('../models/index');
 
 module.exports = {
   create(req, res) {
@@ -19,6 +20,12 @@ module.exports = {
         social_media: req.body.social_media,
       })
       .then(profile => res.status(201).send(profile))
+      .catch(error => res.status(400).send(error));
+  },
+  list(req, res) {
+    return Profile
+      .findAll()
+      .then(profiles => res.status(200).send(profiles))
       .catch(error => res.status(400).send(error));
   },
 };
