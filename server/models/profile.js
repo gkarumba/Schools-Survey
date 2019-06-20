@@ -57,7 +57,7 @@ module.exports = (sequelize, DataTypes) => {
   Profile.associate = (models) => {
     Profile.hasMany(models.Safety_And_Security, {
       foreignKey: 'profileId',
-      as: 'safety_and_securitys',
+      as: 'safety_and_securities',
     });
   };
   return Profile;
